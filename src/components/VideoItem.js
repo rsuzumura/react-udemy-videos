@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { selectVideo } from '../actions';
 import './VideoItem.css';
 
 class VideoItem extends React.Component {
   onVideoClick = () => {
-    this.props.onVideoSelect(this.props.video);
+    this.props.selectVideo(this.props.video);
   }
 
   render() {
@@ -19,4 +21,4 @@ class VideoItem extends React.Component {
   }
 }
 
-export default VideoItem;
+export default connect(null, { selectVideo })(VideoItem);
